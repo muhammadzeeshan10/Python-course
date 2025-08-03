@@ -14,33 +14,28 @@ print(first40)
 first20=data.head(20)
 print(first20)
 
-# using displot with kind kde
-g=sns.displot(data=first20,x='Funding Rounds',hue='Funding Rounds')
-g.figure.show()
-g.figure.suptitle("using Displot")
-read=input("Waiting for some time...")
+sns.set_style('whitegrid')
 
-# using kdeplot
-g=sns.kdeplot(data=first20,x="Year Founded")
-g.figure.show()
-g.figure.suptitle("using kdeplot")
-means=input("wait for some time")
+sns.displot(data=first20,x='Number of Investors',y='Growth Rate (%)',bins=20)
+plt.title("displot")
+plt.show()
 
-# using histplot
-g=sns.histplot(data=first20,x='Startup Name',y='Funding Round',multiple="stack",hue='Funding Round')
-g.figure.suptitle("using histplot")
-g.figure.show()
-read=input("Waiting for some time...")
+sns.kdeplot(data=first40,x='Growth Rate (%)')
+plt.title("kdeplot")
+plt.show()
 
-# using Scaterplot
-f=sns.scatterplot(x='agency',y='price',data=first20)
-f.figure.show()
-read=input("Waiting for some time...")
+sns.histplot(data=first20,x='Growth Rate (%)',y='C',hue='C')
+plt.title("histplot")
+plt.show()
 
-# using Barplot
-f=sns.barplot(data=first20,x='agency',y='price')
-f.figure.suptitle("f=sns.barplot(data=first20,x='agency',y='price')")
-f.figure.show()
-read=input("Waiting for some time...")
+sns.scatterplot(data=first20,x='Growth Rate (%)',y='C',hue='C')
+plt.title("scatterplot")
+plt.show()
 
+sns.catplot(data=first40,x='Valuation (USD)',kind='bar')
+plt.title("catplot")
+plt.show()
 
+sns.barplot(data=first20,x='Startup Name',y='C')
+plt.title("Barplot")
+plt.show()
